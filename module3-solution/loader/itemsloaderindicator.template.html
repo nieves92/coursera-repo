@@ -1,0 +1,18 @@
+<div class="loader"></div>
+<div>
+    <table id="foundItemsTable">
+        <tr>
+            <th class="removeButton"></th>
+            <th class="shortName">Short Name</th>
+            <th class="name">Name</th>
+            <th class="description">Description</th>
+        </tr>
+        <tr ng-repeat="entry in foundItems">
+            <th><button type="button" ng-click="onRemove({index: $index})">Don't want this one!</button></th>
+            <th>{{entry.short_name}}</th>
+            <th>{{entry.name}}</th>
+            <th>{{entry.description}}</th>
+        </tr>
+    </table>
+    <div class="error" ng-transclude></div>
+</div>
