@@ -25,6 +25,7 @@
                         console.log(errorMessage);
                     });
             } else {
+                narrowCtrl.found = [];
                 narrowCtrl.errorMessage = "Nothing found!!";
             }
         };
