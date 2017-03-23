@@ -8,6 +8,7 @@
         .constant('ApiPath', 'https://davids-restaurant.herokuapp.com/menu_items.json');
 
     NarrowItDownController.$inject = ['MenuSearchService'];
+
     function NarrowItDownController(MenuSearchService) {
         var narrowCtrl = this;
         narrowCtrl.found = [];
@@ -17,12 +18,8 @@
             if (narrowCtrl.searchTerm) {
                 MenuSearchService.getMatchedMenuItems(narrowCtrl.searchTerm)
                     .then(function(foundItems) {
-                        if (foundItems.length) {
-                            narrowCtrl.errorMessage = '';
-                            narrowCtrl.found = foundItems;
-                        } else {
-                            narrowCtrl.errorMessage = "Nothing found!!";
-                        }
+                        narrowCtrl.errorMessage = foundItems.length ? '' : "Nothing found!!";
+                        narrowCtrl.found = foundItems;
                     })
                     .catch(function(errorMessage) {
                         console.log(errorMessage);
@@ -38,6 +35,7 @@
     }
 
     MenuSearchService.$inject = ['$http', '$q', 'ApiPath'];
+
     function MenuSearchService($http, $q, ApiPath) {
         var service = this;
 
