@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Sign Up page</h1>
+    <form name="signUpForm" novalidate>
+        <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control" type="text" name="firstName" ng-model="signUpCtrl.firstName" required>
+            <span class="error" ng-if="signUpForm.firstName.$error.required && signUpForm.firstName.$touched">First Name is required</span>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input class="form-control" type="text" name="lastName" ng-model="signUpCtrl.lastName" required>
+            <span class="error" ng-if="signUpForm.lastName.$error.required && signUpForm.lastName.$touched">Last Name is required</span>
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <input class="form-control" type="email" name="email" ng-model="signUpCtrl.emailAddress" required>
+            <span class="error" ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">Invalid email address</span>
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input class="form-control" type="text" name="phone" ng-model="signUpCtrl.phoneNumber" required>
+            <span class="error" ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">Phone is required</span>
+        </div>
+        <div class="form-group">
+            <label>Favorite Menu Number</label>
+            <input class="form-control" type="text" name="menuItem" ng-model="signUpCtrl.menuNumber" ng-blur="signUpCtrl.verifyFavMenu()">
+            <span class="error" ng-if="signUpForm.menuItem.$invalid">No such menu number exists</span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="signUpCtrl.signUp()" ng-disabled="signUpForm.$invalid">Login</button>
+        </div>
+    </form>
+    <h2 class="success" ng-if="signUpCtrl.successMessage">{{signUpCtrl.successMessage}}</h2>
+</div>

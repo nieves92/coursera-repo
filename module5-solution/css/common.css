@@ -1,0 +1,33 @@
+.loading-indicator {
+    display: block;
+    width: 70px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 40%;
+    z-index: 100;
+    background-color: #FFF;
+}
+
+.loading-indicator img {
+    width: 70px;
+    background-color: #FFF;
+}
+
+.ui-view-placeholder {
+    margin-top: 60px;
+}
+
+.ng-touched.ng-valid {
+  border: 3px green solid;
+}
+.ng-touched.ng-invalid {
+  border: 3px red solid;
+}
+.error {
+  color: red;
+}
+.success {
+  color: green;
+}
