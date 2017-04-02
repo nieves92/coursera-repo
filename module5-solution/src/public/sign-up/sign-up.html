@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Sign Up page</h1>
+    <h1>Sign Up</h1>
     <form name="signUpForm" novalidate>
         <div class="form-group">
             <label>First Name</label>
@@ -18,8 +18,8 @@
         </div>
         <div class="form-group">
             <label>Phone Number</label>
-            <input class="form-control" type="text" name="phone" ng-model="signUpCtrl.phoneNumber" required>
-            <span class="error" ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">Phone is required</span>
+            <input class="form-control" type="text" name="phone" ng-model="signUpCtrl.phoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})" required>
+            <span class="error" ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">Phone is required and must be in the format ###-###-####.</span>
         </div>
         <div class="form-group">
             <label>Favorite Menu Number</label>
